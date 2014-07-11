@@ -1,0 +1,19 @@
+<tool id="EMBOSS: goligomercounter" name="goligomercounter" version="1.0.2">
+  <description>Counts the number of given oligomers in a sequence</description>
+  <command>goligomercounter -sequence $input1 -oligomer $oligomer -window $window -auto -noaccid -outfile $out_file1</command>
+  <inputs>
+  <param format="data" name="input1" type="data">
+    <label>Sequence</label>
+  </param>
+  <param name="oligomer" size="8" type="text" value="">
+    <label>Oligomer to count</label>
+  </param>
+  <param name="window" size="4" type="integer" value="">
+    <label>Int window size</label>
+  </param>
+
+  </inputs>
+  <outputs>
+    <data format="txt" name="out_file1" label="${tool.name} for ${input1.name}" />    
+  </outputs>
+</tool>

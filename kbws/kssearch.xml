@@ -1,0 +1,66 @@
+<tool id="EMBOSS: kssearch" name="kssearch" version="1.0.2">
+  <description>Search similar sequences in public repositories using SSEARCH</description>
+  <command>kssearch -seqall $input1 -moltype $moltype -histogram $histogram -nucleotide $nucleotide -topstrand $topstrand -bottomstrand $bottomstrand -gapopen $gapopen -gapext $gapext -scores $scores -alignments $alignments -ktup $ktup -matrix $matrix -eupper $eupper -elower $elower -dbrange $dbrange -seqrange $seqrange -auto -outfile $out_file1</command>
+  <inputs>
+  <param format="data" name="input1" type="data">
+    <label>Sequence</label>
+  </param>
+    <param name="moltype" size="4" type="text" value="">
+      <label>molecular type</label>
+    </param>
+    <param name="histogram" type="select" value="">
+      <label>Display histogram</label>
+      <option value="no">No</option>
+      <option value="yes">Yes</option>
+    </param>
+    <param name="nucleotide" type="select" value="">
+      <label>your query is nucleotide or not(protein)</label>
+      <option value="no">No</option>
+      <option value="yes">Yes</option>
+    </param>
+    <param name="topstrand" type="select" value="">
+      <label>Nucleotide sequence strand to use for seqrch (top)</label>
+      <option value="no">No</option>
+      <option value="yes">Yes</option>
+    </param>
+    <param name="bottomstrand" type="select" value="">
+      <label>Nucleotide sequence strand to use for seqrch (bottom)</label>
+      <option value="no">No</option>
+      <option value="yes">Yes</option>
+    </param>
+    <param name="gapopen" size="4" type="integer" value="">
+      <label>Score for the initiation of a gap</label>
+    </param>
+    <param name="gapext" size="4" type="integer" value="">
+      <label>Score for each base/residue in a gap</label>
+    </param>
+    <param name="scores" size="4" type="integer" value="">
+      <label>Maximum number of scores displayed in the output</label>
+    </param>
+    <param name="alignments" size="4" type="integer" value="">
+      <label>Maximum number of alignments displayed in the output</label>
+    </param>
+    <param name="ktup" size="4" type="integer" value="">
+      <label>Word size to use for sequence comparisons</label>
+    </param>
+    <param name="matrix" size="4" type="text" value="">
+      <label>Scoring matrix to be used in the search</label>
+    </param>
+    <param name="eupper" size="4" type="float" value="">
+      <label>Upper E-value threshold</label>
+    </param>
+    <param name="elower" size="4" type="float" value="">
+      <label>Lower E-value threshold</label>
+    </param>
+    <param name="dbrange" size="4" type="text" value="">
+      <label>Range of sequence lengths in search database to include in search</label>
+    </param>
+    <param name="seqrange" size="4" type="text" value="">
+      <label>Region of the query sequence to use for the search</label>
+    </param>
+
+  </inputs>
+  <outputs>
+    <data format="txt" name="out_file1" label="${tool.name} for ${input1.name}" />    
+  </outputs>
+</tool>

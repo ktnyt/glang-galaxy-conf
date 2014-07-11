@@ -1,0 +1,24 @@
+<tool id="EMBOSS: gpalindrome" name="gpalindrome" version="1.0.2">
+  <description>Searches palindrome sequences</description>
+  <command>gpalindrome -sequence $input1 -shortest $shortest -loop $loop -gtmatch $gtmatch -auto -noaccid -outfile $out_file1</command>
+  <inputs>
+  <param format="data" name="input1" type="data">
+    <label>Sequence</label>
+  </param>
+    <param name="shortest" size="4" type="integer" value="4">
+      <label>Shortest palindrome to search</label>
+    </param>
+    <param name="loop" size="4" type="integer" value="">
+      <label>Longest stem loop to allow</label>
+    </param>
+    <param name="gtmatch" type="select" value="">
+      <label>If 1, allows g-t match</label>
+      <option value="no">No</option>
+      <option value="yes">Yes</option>
+    </param>
+
+  </inputs>
+  <outputs>
+    <data format="csv" name="out_file1" label="${tool.name} for ${input1.name}" />    
+  </outputs>
+</tool>

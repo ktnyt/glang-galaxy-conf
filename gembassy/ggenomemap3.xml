@@ -1,0 +1,19 @@
+<tool id="EMBOSS: ggenomemap3" name="ggenomemap3" version="1.0.2">
+  <description>Draws the map of the genome (version 3)</description>
+  <command interpreter="perl">emboss_single_outputfile_wrapper.pl ggenomemap3 -sequence $input1 -format png -goutfile $out_file1 -auto -noaccid -width $width -height $height</command>
+  <inputs>
+  <param format="data" name="input1" type="data">
+    <label>Sequence</label>
+  </param>
+    <param name="width" size="4" type="integer" value="8192">
+      <label>Image width</label>
+    </param>
+    <param name="height" size="4" type="integer" value="8192">
+      <label>Image height</label>
+    </param>
+
+  </inputs>
+  <outputs>
+    <data format="png" name="out_file1" label="${tool.name} for ${input1.name}" />    
+  </outputs>
+</tool>

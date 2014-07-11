@@ -1,0 +1,37 @@
+<tool id="EMBOSS: krnafold" name="krnafold" version="1.0.2">
+  <description>Predicts secondary structure of single starnd RNA or DNA using RNAfold</description>
+  <command>krnafold -seqall $input1 -noclosegu $noclosegu -nolp $nolp -dangling $dangling -param $param -tmp $tmp -circ $circ -auto -outfile $out_file1</command>
+  <inputs>
+  <param format="data" name="input1" type="data">
+    <label>Sequence</label>
+  </param>
+    <param name="noclosegu" type="select" value="no">
+      <label>no GU pairs at the end of helices</label>
+      <option value="no">No</option>
+      <option value="yes">Yes</option>
+    </param>
+    <param name="nolp" type="select" value="yes">
+      <label>avoid isolated base pairs</label>
+      <option value="no">No</option>
+      <option value="yes">Yes</option>
+    </param>
+    <param name="dangling" size="4" type="text" value="d2">
+      <label>Dangling end options</label>
+    </param>
+    <param name="param" size="4" type="text" value="rna">
+      <label>Energy Parameters</label>
+    </param>
+    <param name="tmp" size="4" type="integer" value="37">
+      <label>rescale energy parameters to given temperature (C)</label>
+    </param>
+    <param name="circ" type="select" value="no">
+      <label>assume RNA molecule to be circular</label>
+      <option value="no">No</option>
+      <option value="yes">Yes</option>
+    </param>
+
+  </inputs>
+  <outputs>
+    <data format="txt" name="out_file1" label="${tool.name} for ${input1.name}" />    
+  </outputs>
+</tool>

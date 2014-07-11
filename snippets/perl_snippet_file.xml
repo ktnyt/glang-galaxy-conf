@@ -1,0 +1,25 @@
+<tool id="perl_snippet_file" name="Perl Snippet File" version="1.0.0">
+  <description>Runs given perl script file</description>
+  <command interpreter="perl">
+    perl_snippet_file.pl
+    $input
+    $out_file1
+    $out_file2
+    $out_file3
+    #for $add in $add_inputs
+      #set $add_input = $add.add_input
+      $add_input
+    #end for
+  </command>
+  <inputs>
+    <param format="txt" name="input" type="data" label="Script to Run" />
+    <repeat name="add_inputs" title="Additional Input Files">
+      <param format="txt" name="add_input" type="data" label="Additional File" />
+    </repeat>
+  </inputs>
+  <outputs>
+    <data format="input" name="out_file1" label="Perl snippet output" />
+    <data format="input" name="out_file2" label="Perl snippet stdout" />
+    <data format="input" name="out_file3" label="Perl snippet stderr" />
+  </outputs>
+</tool>

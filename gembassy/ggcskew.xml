@@ -1,0 +1,40 @@
+<tool id="EMBOSS: ggcskew" name="ggcskew" version="1.0.2">
+  <description>Calculates and plots the GC skew of the input sequence</description>
+  <command interpreter="perl">gembassy_calcandplot_wrapper.pl ggcskew -sequence $input1 -window $window -slide $slide -cumulative $cumulative -at $at -purine $purine -keto $keto -auto $out_file1 $out_file2</command>
+  <inputs>
+  <param format="data" name="input1" type="data">
+    <label>Sequence</label>
+  </param>
+    <param name="window" size="4" type="integer" value="10000">
+      <label>Window size to observe</label>
+    </param>
+    <param name="slide" size="4" type="integer" value="10000">
+      <label>Window slide size</label>
+    </param>
+    <param name="cumulative" type="select" value="no">
+      <label>Include to calculate cumulative skew</label>
+      <option value="no">No</option>
+      <option value="yes">Yes</option>
+    </param>
+    <param name="at" type="select" value="no">
+      <label>Include for observing AT skew instead of GC skew</label>
+      <option value="no">No</option>
+      <option value="yes">Yes</option>
+    </param>
+    <param name="purine" type="select" value="no">
+      <label>Include for observing purine (AG/TC) skew</label>
+      <option value="no">No</option>
+      <option value="yes">Yes</option>
+    </param>
+    <param name="keto" type="select" value="no">
+      <label>Include for observing keto (TG/AC) skew</label>
+      <option value="no">No</option>
+      <option value="yes">Yes</option>
+    </param>
+
+  </inputs>
+  <outputs>
+    <data format="csv" name="out_file1" label="${tool.name} data for ${input1.name}" />
+    <data format="png" name="out_file2" label="${tool.name} plot for ${input1.name}" />    
+  </outputs>
+</tool>

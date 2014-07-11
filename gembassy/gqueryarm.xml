@@ -1,0 +1,15 @@
+<tool id="EMBOSS: gqueryarm" name="gqueryarm" version="1.0.2">
+  <description>Gets the replication arm name (left or right) from the given position</description>
+  <command>gqueryarm -sequence $input1  -auto -noaccid -outfile $out_file1</command>
+  <inputs>
+  <param format="data" name="input1" type="data">
+    <label>Sequence</label>
+  </param>
+  <param name="position" type="integer" value="">
+    <label>Position to query</label>
+  </param>
+  </inputs>
+  <outputs>
+    <data format="txt" name="out_file1" label="${tool.name} for ${input1.name}" />    
+  </outputs>
+</tool>

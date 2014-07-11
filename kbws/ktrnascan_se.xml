@@ -1,0 +1,64 @@
+<tool id="EMBOSS: ktrnascan_se" name="ktrnascan_se" version="1.0.2">
+  <description>Finds tRNA genes using tRNAscan-SE</description>
+  <command>ktrnascan_se -seqall $input1 -title $title -mode $mode -source $source -gcode $gcode -pesudogene $pesudogene -origin $origin -ace $ace -codons $codons -fpos $fpos -breakdown $breakdown -covescore $covescore -euparams $euparams -euscore $euscore -auto -outfile $out_file1</command>
+  <inputs>
+  <param format="data" name="input1" type="data">
+    <label>Sequence</label>
+  </param>
+    <param name="title" size="4" type="text" value="">
+      <label>Title of your job</label>
+    </param>
+    <param name="mode" size="4" type="text" value="Default">
+      <label>Search mode</label>
+    </param>
+    <param name="source" size="4" type="text" value="Mixed (general tRNA model)">
+      <label>Training data set</label>
+    </param>
+    <param name="gcode" size="4" type="text" value="Universal">
+      <label>Genetic Code for tRNA Isotype Prediction</label>
+    </param>
+    <param name="pesudogene" type="select" value="">
+      <label>Disable pseudo gene checking</label>
+      <option value="no">No</option>
+      <option value="yes">Yes</option>
+    </param>
+    <param name="origin" type="select" value="">
+      <label>Show origin of first-pass hits</label>
+      <option value="no">No</option>
+      <option value="yes">Yes</option>
+    </param>
+    <param name="ace" type="select" value="">
+      <label>Display results in ACeDB format</label>
+      <option value="no">No</option>
+      <option value="yes">Yes</option>
+    </param>
+    <param name="codons" type="select" value="">
+      <label>Show codons instead of tRNA anticodons</label>
+      <option value="no">No</option>
+      <option value="yes">Yes</option>
+    </param>
+    <param name="fpos" type="select" value="">
+      <label>Show false positives from tRNAscan/EufindtRNA</label>
+      <option value="no">No</option>
+      <option value="yes">Yes</option>
+    </param>
+    <param name="breakdown" type="select" value="">
+      <label>Show primary and secondary structure components to Cove scores</label>
+      <option value="no">No</option>
+      <option value="yes">Yes</option>
+    </param>
+    <param name="covescore" size="4" type="text" value="">
+      <label>Cove score cutoff</label>
+    </param>
+    <param name="euparams" size="4" type="text" value="Default">
+      <label>EufindtRNA search parameters</label>
+    </param>
+    <param name="euscore" size="4" type="text" value="">
+      <label>Intermediate score cutoff</label>
+    </param>
+
+  </inputs>
+  <outputs>
+    <data format="txt" name="out_file1" label="${tool.name} for ${input1.name}" />    
+  </outputs>
+</tool>

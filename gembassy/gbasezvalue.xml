@@ -1,0 +1,30 @@
+<tool id="EMBOSS: gbasezvalue" name="gbasezvalue" version="1.0.2">
+  <description>Extracts conserved oligomers per position using Z-score</description>
+  <command>gbasezvalue -sequence $input1 -limit $limit -position $position -patlen $patlen -upstream $upstream -downstream $downstream -auto -noaccid -outfile $out_file1</command>
+  <inputs>
+  <param format="data" name="input1" type="data">
+    <label>Sequence</label>
+  </param>
+    <param name="limit" size="4" type="integer" value="5">
+      <label>Rank threshold for showing the conserved oligomer</label>
+    </param>
+    <param name="position" type="select" value="start">
+      <label>Either 'start' (around start codon) or 'end' (around stop codon) to create the PWM</label>
+      <option value="start">Start</option>
+      <option value="end">End</option>
+    </param>
+    <param name="patlen" size="4" type="integer" value="3">
+      <label>Length of oligomer to count</label>
+    </param>
+    <param name="upstream" size="4" type="integer" value="30">
+      <label>Length upstream of specified position to create PWM</label>
+    </param>
+    <param name="downstream" size="4" type="integer" value="30">
+      <label>Length downstream of specified position to create PWM</label>
+    </param>
+
+  </inputs>
+  <outputs>
+    <data format="csv" name="out_file1" label="${tool.name} for ${input1.name}" />    
+  </outputs>
+</tool>

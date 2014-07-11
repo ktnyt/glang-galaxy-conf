@@ -1,0 +1,18 @@
+<tool id="EMBOSS: gsvalue" name="gsvalue" version="1.0.2">
+  <description>Calculates the strength of selected codon usage bias (S)</description>
+  <command>gsvalue -sequence $input1 -sharp $sharp -auto -noaccid -outfile $out_file1</command>
+  <inputs>
+  <param format="data" name="input1" type="data">
+    <label>Sequence</label>
+  </param>
+    <param name="sharp" type="select" value="no">
+      <label>Include to use the 40 genes used by Sharp instead of ribosomal proteins</label>
+      <option value="no">No</option>
+      <option value="yes">Yes</option>
+    </param>
+
+  </inputs>
+  <outputs>
+    <data format="txt" name="out_file1" label="${tool.name} for ${input1.name}" />    
+  </outputs>
+</tool>

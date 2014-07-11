@@ -1,0 +1,18 @@
+<tool id="EMBOSS: gdistincc" name="gdistincc" version="1.0.2">
+  <description>Calculates the distance between two loci in circular chromosomes</description>
+  <command>gdistincc -sequence $input1 -second $second -auto -noaccid -outfile $out_file1</command>
+  <inputs>
+  <param format="data" name="input1" type="data">
+    <label>Sequence</label>
+  </param>
+  <param name="first" size="8" type="integer" value="0">
+    <label>Position to find the distance</label>
+  </param>
+  <param name="second" size="8" type="integer" value="-1">
+    <label>If the second position is negative, position of replication origin is used</label>
+  </param>
+  </inputs>
+  <outputs>
+    <data format="txt" name="out_file1" label="${tool.name} for ${input1.name}" />    
+  </outputs>
+</tool>

@@ -1,0 +1,15 @@
+<tool id="EMBOSS: gentrez" name="gentrez" version="1.0.2">
+  <description>Searches NCBI Entrez</description>
+  <command>gentrez -database $database -query '$query'0 -auto -outfile $out_file1</command>
+  <inputs>
+    <param name="database" type="text">
+      <label>NCBI database to search</label>
+    </param>
+    <param name="query" type="text">
+      <label>Query to search</label>
+    </param>
+  </inputs>
+  <outputs>
+    <data format="txt" name="out_file1" label="Search ${database.value} for ${query.value}" />
+  </outputs>
+</tool>

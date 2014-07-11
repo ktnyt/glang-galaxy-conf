@@ -1,0 +1,13 @@
+<tool id="EMBOSS: kweblogo" name="kweblogo" version="1.0.2">
+  <description>Generation of sequence logos using WebLogo</description>
+  <command interpreter="perl">emboss_single_outputfile_wrapper.pl kweblogo -seqall $input1 -format png -goutfile $out_file1 -auto </command>
+  <inputs>
+  <param format="data" name="input1" type="data">
+    <label>Sequence</label>
+  </param>
+
+  </inputs>
+  <outputs>
+    <data format="png" name="out_file1" label="${tool.name} for ${input1.name}" />    
+  </outputs>
+</tool>

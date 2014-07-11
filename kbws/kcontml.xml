@@ -1,0 +1,13 @@
+<tool id="EMBOSS: kcontml" name="kcontml" version="1.0.2">
+  <description>Gene frequency and continuous character Maximum Likelihood using contml</description>
+  <command>kcontml -seqall $input1  -auto -outfile $out_file1</command>
+  <inputs>
+  <param format="data" name="input1" type="data">
+    <label>Sequence</label>
+  </param>
+
+  </inputs>
+  <outputs>
+    <data format="txt" name="out_file1" label="${tool.name} for ${input1.name}" />    
+  </outputs>
+</tool>

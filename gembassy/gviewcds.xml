@@ -1,0 +1,20 @@
+<tool id="EMBOSS: gviewcds" name="gviewcds" version="1.0.2">
+  <description>Displays a graph of nucleotide contents around start and stop codons</description>
+  <command interpreter="perl">gembassy_calcandplot_wrapper.pl gviewcds -sequence $input1 -length $length -gap $gap -auto -noaccid $out_file1 $out_file2</command>
+  <inputs>
+  <param format="data" name="input1" type="data">
+    <label>Sequence</label>
+  </param>
+    <param name="length" size="4" type="integer" value="100">
+      <label>Length in bases to show around start/stop codons</label>
+    </param>
+    <param name="gap" size="4" type="integer" value="3">
+      <label>Gap shown in graph in between start/stop codon neighbors</label>
+    </param>
+
+  </inputs>
+  <outputs>
+    <data format="csv" name="out_file1" label="${tool.name} data for ${input1.name}" />
+    <data format="png" name="out_file2" label="${tool.name} plot for ${input1.name}" />    
+  </outputs>
+</tool>

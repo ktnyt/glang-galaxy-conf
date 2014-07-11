@@ -1,0 +1,20 @@
+<tool id="EMBOSS: goligomersearch" name="goligomersearch" version="1.0.2">
+  <description>Searches oligomers in given sequence</description>
+  <command>goligomersearch -sequence $input1 -return $return -auto -noaccid -outfile $out_file1</command>
+  <inputs>
+  <param format="data" name="input1" type="data">
+    <label>Sequence</label>
+  </param>
+    <param name="return" type="select" value="position">
+      <label>'position' to return list of positions where oligomers are found, 'oligo' to return list of oligomers found ordered by positions, 'both' to return a hash with positions as keys and oligomers as values, 'distribution' to return four values about the distribution of given oligomer</label>
+      <option value="position">Position</option>
+      <option value="oligo">Oligo</option>
+      <option value="both">Both</option>
+      <option value="distribution">Distribution</option>
+    </param>
+
+  </inputs>
+  <outputs>
+    <data format="txt" name="out_file1" label="${tool.name} for ${input1.name}" />    
+  </outputs>
+</tool>

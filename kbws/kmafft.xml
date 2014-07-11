@@ -1,0 +1,44 @@
+<tool id="EMBOSS: kmafft" name="kmafft" version="1.0.2">
+  <description>Multiple sequence alignment using MAFFT</description>
+  <command>kmafft -seqall $input1 -strategy $strategy -outorder $outorder -opengap $opengap -ep $ep -scorematrix $scorematrix -homologs $homologs -showhomologs $showhomologs -numhomologs $numhomologs -threshold $threshold -auto -outfile $out_file1</command>
+  <inputs>
+  <param format="data" name="input1" type="data">
+    <label>Sequence</label>
+  </param>
+    <param name="strategy" size="4" type="text" value="auto">
+      <label>Calculation strategy.</label>
+    </param>
+    <param name="outorder" size="4" type="text" value="aligned">
+      <label>Output order. 'input': same as input, 'aligned': aligned</label>
+    </param>
+    <param name="opengap" size="4" type="float" value="1.53">
+      <label>Gap opening penalty (1.0 - 3.0)</label>
+    </param>
+    <param name="ep" size="4" type="float" value="0.0">
+      <label>Offset value (0.0 - 1.0)</label>
+    </param>
+    <param name="scorematrix" size="4" type="text" value="">
+      <label>Scoring matrix. Protein seq:    'BLOSUM30', 'BLOSUM45', 'BLOSUM62'(default), 'BLOSUM80', 'JTT100' or 'JTT200' Nucleotide seq: '1PAM', '20PAM' or '200PAM'(default)</label>
+    </param>
+    <param name="homologs" type="select" value="no">
+      <label>Collects homologs from SwissProt by BLAST and performs profile-based alignments.</label>
+      <option value="no">No</option>
+      <option value="yes">Yes</option>
+    </param>
+    <param name="showhomologs" type="select" value="no">
+      <label>Show homologs  sequence</label>
+      <option value="no">No</option>
+      <option value="yes">Yes</option>
+    </param>
+    <param name="numhomologs" size="4" type="integer" value="50">
+      <label>Number of homologs sequences</label>
+    </param>
+    <param name="threshold" size="4" type="float" value="1e-10">
+      <label>Threshold of homologs sequences</label>
+    </param>
+
+  </inputs>
+  <outputs>
+    <data format="txt" name="out_file1" label="${tool.name} for ${input1.name}" />    
+  </outputs>
+</tool>

@@ -1,0 +1,19 @@
+<tool id="EMBOSS: gwvalue" name="gwvalue" version="1.0.2">
+  <description>Calculates the 'relative adaptiveness of each codon' (W)</description>
+  <command>gwvalue -sequence $input1 -include $include -exclude $exclude -auto -noaccid -outfile $out_file1</command>
+  <inputs>
+  <param format="data" name="input1" type="data">
+    <label>Sequence</label>
+  </param>
+    <param name="include" size="4" type="text" value="ribosomal.*protein">
+      <label>Regular expression to include genes in a reference set a reference set in several studies are in-built 1: Nakamura and Tabata, 2: Sharp and Li, 3: Sakai et al.</label>
+    </param>
+    <param name="exclude" size="4" type="text" value="[Mm]itochondrial">
+      <label>Regular expression to exclude genes from a reference set</label>
+    </param>
+
+  </inputs>
+  <outputs>
+    <data format="csv" name="out_file1" label="${tool.name} for ${input1.name}" />    
+  </outputs>
+</tool>

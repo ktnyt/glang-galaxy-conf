@@ -1,0 +1,22 @@
+<tool id="EMBOSS: genret" name="genret" version="1.0.2">
+  <description>Retrieves various gene features from genome flatfile</description>
+  <command>genret -sequence $input1 -gene '$gene' -access '$access' -argument '$argument' -auto -noaccid -outfile $out_file1</command>
+  <inputs>
+  <param format="data" name="input1" type="data">
+    <label>Sequence</label>
+  </param>
+  <param name="gene" area="True" size="8x5" type="text">
+    <label>List of gene name(s) to report</label>
+  </param>
+  <param name="access" size="20" type="text">
+    <label>Name of feature to access</label>
+  </param>
+  <param name="argument" size="20" type="text">
+    <label>Extra arguments to pass to method</label>
+  </param>
+
+  </inputs>
+  <outputs>
+    <data format="csv" name="out_file1" label="${tool.name} for ${input1.name}" />    
+  </outputs>
+</tool>

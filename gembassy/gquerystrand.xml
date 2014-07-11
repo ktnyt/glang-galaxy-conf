@@ -1,0 +1,20 @@
+<tool id="EMBOSS: gquerystrand" name="gquerystrand" version="1.0.2">
+  <description>Gets the strand name (leading or lagging) from the given position</description>
+  <command>gquerystrand -sequence $input1 -direction $direction -auto -noaccid -outfile $out_file1</command>
+  <inputs>
+  <param format="data" name="input1" type="data">
+    <label>Sequence</label>
+  </param>
+  <param name="position" type="integer" value="0">
+    <label>Position to query</label>
+  </param>
+  <param name="direction" type="select" value="direct">
+    <label>Strand of the querying position either 'direct' or 'complement'</label>
+    <option value="direct">Direct</option>
+    <option value="complement">Complement</option>
+  </param>
+  </inputs>
+  <outputs>
+    <data format="txt" name="out_file1" label="${tool.name} for ${input1.name}" />    
+  </outputs>
+</tool>

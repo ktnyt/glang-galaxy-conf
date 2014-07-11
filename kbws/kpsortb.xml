@@ -1,0 +1,16 @@
+<tool id="EMBOSS: kpsortb" name="kpsortb" version="1.0.2">
+  <description>Predicts protein localization for PSORT B</description>
+  <command interpreter="perl">emboss_single_outputfile_wrapper.pl kpsortb -seqall $input1 -format png -goutfile $out_file1 -auto -format $format</command>
+  <inputs>
+  <param format="data" name="input1" type="data">
+    <label>Sequence</label>
+  </param>
+    <param name="format" size="4" type="text" value="normal">
+      <label>Psortb output format ('normal', 'long' and 'short')</label>
+    </param>
+
+  </inputs>
+  <outputs>
+    <data format="png" name="out_file1" label="${tool.name} for ${input1.name}" />    
+  </outputs>
+</tool>

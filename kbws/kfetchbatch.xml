@@ -1,0 +1,19 @@
+<tool id="EMBOSS: kfetchbatch" name="kfetchbatch" version="1.0.2">
+  <description>Fetch a set of entries in a defined format and style</description>
+  <command interpreter="perl">emboss_single_outputfile_wrapper.pl kfetchbatch -seqall $input1 -format png -goutfile $out_file1 -auto -format $format -style $style</command>
+  <inputs>
+  <param format="data" name="input1" type="data">
+    <label>Sequence</label>
+  </param>
+    <param name="format" size="4" type="text" value="default">
+      <label>Output data format. 'default', 'annot', 'embl', 'emblxml-1.1', 'emblxml-1.2', 'fasta', 'insdxml', 'seqxml' or 'entrysize'</label>
+    </param>
+    <param name="style" size="4" type="text" value="raw">
+      <label>Output data style. 'raw' or 'html'</label>
+    </param>
+
+  </inputs>
+  <outputs>
+    <data format="png" name="out_file1" label="${tool.name} for ${input1.name}" />    
+  </outputs>
+</tool>

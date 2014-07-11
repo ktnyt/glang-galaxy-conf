@@ -1,0 +1,23 @@
+<tool id="EMBOSS: gldabias" name="gldabias" version="1.0.2">
+  <description>Calculates strand bias of bacterial genome using linear discriminant analysis (LDA)</description>
+  <command>gldabias -sequence $input1 -coefficients $coefficients -variable $variable -auto -noaccid -outfile $out_file1</command>
+  <inputs>
+  <param format="data" name="input1" type="data">
+    <label>Sequence</label>
+  </param>
+    <param name="coefficients" size="4" type="integer" value="0">
+      <label>Show LDA coefficients</label>
+    </param>
+    <param name="variable" type="select" value="codon">
+      <label>Data to use for LDA. Either 'base', 'codonbase', 'codon', or 'amino'</label>
+      <option value="base">Base</option>
+      <option value="codonbase">Codonbase</option>
+      <option value="codon">Codon</option>
+      <option value="amino">Amino</option>
+    </param>
+
+  </inputs>
+  <outputs>
+    <data format="txt" name="out_file1" label="${tool.name} for ${input1.name}" />    
+  </outputs>
+</tool>

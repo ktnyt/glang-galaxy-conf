@@ -1,0 +1,20 @@
+<tool id="EMBOSS: gnucleotideperiodicity" name="gnucleotideperiodicity" version="1.0.2">
+  <description>Checks the periodicity of certain oligonucleotides</description>
+  <command interpreter="perl">gembassy_calcandplot_wrapper.pl gnucleotideperiodicity -sequence $input1 -window $window -nucleotide $nucleotide -auto -noaccid $out_file1 $out_file2</command>
+  <inputs>
+  <param format="data" name="input1" type="data">
+    <label>Sequence</label>
+  </param>
+    <param name="window" size="4" type="integer" value="50">
+      <label>Window size to seek periodicity</label>
+    </param>
+    <param name="nucleotide" size="4" type="text" value="aa">
+      <label>Nucleotide to search</label>
+    </param>
+
+  </inputs>
+  <outputs>
+    <data format="csv" name="out_file1" label="${tool.name} data for ${input1.name}" />
+    <data format="png" name="out_file2" label="${tool.name} plot for ${input1.name}" />    
+  </outputs>
+</tool>

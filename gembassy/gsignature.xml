@@ -1,0 +1,26 @@
+<tool id="EMBOSS: gsignature" name="gsignature" version="1.0.2">
+  <description>Calculates oligonucleotide usage (genomic signature)</description>
+  <command>gsignature -sequence $input1 -wordlength $wordlength -bothstrand $bothstrand -oe $oe -auto -noaccid -outfile $out_file1</command>
+  <inputs>
+  <param format="data" name="input1" type="data">
+    <label>Sequence</label>
+  </param>
+    <param name="wordlength" size="4" type="integer" value="2">
+      <label>Word length</label>
+    </param>
+    <param name="bothstrand" type="select" value="yes">
+      <label>Include to use both strands direct used otherwise</label>
+      <option value="no">No</option>
+      <option value="yes">Yes</option>
+    </param>
+    <param name="oe" type="select" value="yes">
+      <label>Include to use O/E value observed values used otherwise</label>
+      <option value="no">No</option>
+      <option value="yes">Yes</option>
+    </param>
+
+  </inputs>
+  <outputs>
+    <data format="csv" name="out_file1" label="${tool.name} for ${input1.name}" />    
+  </outputs>
+</tool>

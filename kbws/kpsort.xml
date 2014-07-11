@@ -1,0 +1,19 @@
+<tool id="EMBOSS: kpsort" name="kpsort" version="1.0.2">
+  <description>Predicts protein localization for PSORT</description>
+  <command>kpsort -seqall $input1 -org $org -title $title -auto -outfile $out_file1</command>
+  <inputs>
+  <param format="data" name="input1" type="data">
+    <label>Sequence</label>
+  </param>
+    <param name="org" size="4" type="text" value="anmal">
+      <label>Source for input sequence organisms. 'Gram-positive bacterium', 'Gram-negative bacterium', 'yeast', 'animal' or 'plant'</label>
+    </param>
+    <param name="title" size="4" type="text" value="MYSEQ">
+      <label>Title for your job</label>
+    </param>
+
+  </inputs>
+  <outputs>
+    <data format="txt" name="out_file1" label="${tool.name} for ${input1.name}" />    
+  </outputs>
+</tool>

@@ -1,0 +1,16 @@
+<tool id="EMBOSS: kphobius" name="kphobius" version="1.0.2">
+  <description>Predicts transmembrance topology and signal peptides using Phobius</description>
+  <command>kphobius -seqall $input1 -outputformat $outputformat -auto -outfile $out_file1</command>
+  <inputs>
+  <param format="data" name="input1" type="data">
+    <label>Sequence</label>
+  </param>
+    <param name="outputformat" size="4" type="text" value="grp">
+      <label>The output format: 'long', 'short', 'raw' or 'grp'</label>
+    </param>
+
+  </inputs>
+  <outputs>
+    <data format="txt" name="out_file1" label="${tool.name} for ${input1.name}" />    
+  </outputs>
+</tool>

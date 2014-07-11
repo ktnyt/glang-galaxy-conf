@@ -1,0 +1,24 @@
+<tool id="EMBOSS: gdinuc" name="gdinuc" version="1.0.2">
+  <description>Calculates dinucleotide usage </description>
+  <command>gdinuc -sequence $input1 -translate $translate -position $position -auto -noaccid -outfile $out_file1</command>
+  <inputs>
+  <param format="data" name="input1" type="data">
+    <label>Sequence</label>
+  </param>
+    <param name="translate" type="select" value="no">
+      <label>Include when translates using standard codon table</label>
+      <option value="no">No</option>
+      <option value="yes">Yes</option>
+    </param>
+    <param name="position" type="select" value="all">
+      <label>Codon position or reading frame</label>
+      <option value="all">Assess all codon positions</option>
+      <option value="12">Assess the reading frame 1-2</option>
+      <option value="23">Assess the reading frame 2-3</option>
+      <option value="31">Assess the reading frame 3-1</option>
+    </param>
+  </inputs>
+  <outputs>
+    <data format="csv" name="out_file1" label="${tool.name} for ${input1.name}" />    
+  </outputs>
+</tool>

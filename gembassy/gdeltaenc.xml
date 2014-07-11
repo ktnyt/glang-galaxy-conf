@@ -1,0 +1,12 @@
+<tool id="EMBOSS: gdeltaenc" name="gdeltaenc" version="1.0.2">
+  <description>Calculates the codon usage bias related to translation optimization (delta ENC)</description>
+  <command>gdeltaenc -sequence $input1 -auto -noaccid -outfile $out_file1</command>
+  <inputs>
+    <param format="data" name="input1" type="data">
+      <label>Sequence</label>
+    </param>
+  </inputs>
+  <outputs>
+    <data format="txt" name="out_file1" label="${tool.name} for ${input1.name}" />    
+  </outputs>
+</tool>

@@ -1,0 +1,19 @@
+<tool id="EMBOSS: kcentroidfold" name="kcentroidfold" version="1.0.2">
+  <description>Predicts RNA 2D structure using CentroidFold</description>
+  <command>kcentroidfold -seqall $input1 -engine $engine -gamma $gamma -auto -outfile $out_file1</command>
+  <inputs>
+  <param format="data" name="input1" type="data">
+    <label>Sequence</label>
+  </param>
+    <param name="engine" size="4" type="text" value="CONTRAfold">
+      <label>specify the inference engine. 'CONTRAfold', 'McCaskill', 'pfold' or 'AUX'</label>
+    </param>
+    <param name="gamma" size="4" type="integer" value="4">
+      <label>weight of base pairs (2^-5 ~ 2^10)</label>
+    </param>
+
+  </inputs>
+  <outputs>
+    <data format="txt" name="out_file1" label="${tool.name} for ${input1.name}" />    
+  </outputs>
+</tool>

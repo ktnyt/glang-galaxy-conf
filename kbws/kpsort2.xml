@@ -1,0 +1,13 @@
+<tool id="EMBOSS: kpsort2" name="kpsort2" version="1.0.2">
+  <description>Predicts protein localization for PSORT2</description>
+  <command>kpsort2 -seqall $input1  -auto -outfile $out_file1</command>
+  <inputs>
+  <param format="data" name="input1" type="data">
+    <label>Sequence</label>
+  </param>
+
+  </inputs>
+  <outputs>
+    <data format="txt" name="out_file1" label="${tool.name} for ${input1.name}" />    
+  </outputs>
+</tool>

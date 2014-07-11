@@ -1,0 +1,28 @@
+<tool id="EMBOSS: kkalign" name="kkalign" version="1.0.2">
+  <description>Multiple sequence alignment using Kalign</description>
+  <command>kkalign -seqall $input1 -moltype $moltype -gpo $gpo -gpe $gpe -tgpe $tgpe -bonus $bonus -auto -outfile $out_file1</command>
+  <inputs>
+  <param format="data" name="input1" type="data">
+    <label>Sequence</label>
+  </param>
+    <param name="moltype" size="4" type="text" value="auto">
+      <label>Molecular (sequence) type. 'auto' (auto detection by input sequence), 'N'(nucleotide) or 'P'(protein)</label>
+    </param>
+    <param name="gpo" size="4" type="float" value="">
+      <label>gap creation penalty</label>
+    </param>
+    <param name="gpe" size="4" type="float" value="">
+      <label>gap extension penalty</label>
+    </param>
+    <param name="tgpe" size="4" type="float" value="">
+      <label>terminal gap penalty</label>
+    </param>
+    <param name="bonus" size="4" type="float" value="">
+      <label>bonus score</label>
+    </param>
+
+  </inputs>
+  <outputs>
+    <data format="txt" name="out_file1" label="${tool.name} for ${input1.name}" />    
+  </outputs>
+</tool>

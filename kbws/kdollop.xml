@@ -1,0 +1,13 @@
+<tool id="EMBOSS: kdollop" name="kdollop" version="1.0.2">
+  <description>Dollo and polymorphism parsimony algorithm using dollop</description>
+  <command>kdollop -seqall $input1  -auto -outfile $out_file1</command>
+  <inputs>
+  <param format="data" name="input1" type="data">
+    <label>Sequence</label>
+  </param>
+
+  </inputs>
+  <outputs>
+    <data format="txt" name="out_file1" label="${tool.name} for ${input1.name}" />    
+  </outputs>
+</tool>

@@ -1,0 +1,19 @@
+<tool id="EMBOSS: gseq2png" name="gseq2png" version="1.0.2">
+  <description>Converts a sequence to PNG image</description>
+  <command interpreter="perl">emboss_single_outputfile_wrapper.pl gseq2png -sequence $input1 -format png -goutfile $out_file1 -auto -width $width -window $window</command>
+  <inputs>
+  <param format="data" name="input1" type="data">
+    <label>Sequence</label>
+  </param>
+    <param name="width" size="4" type="integer" value="640">
+      <label>Width of the image</label>
+    </param>
+    <param name="window" size="4" type="integer" value="20">
+      <label>Window size of a sequence to represent each pixel</label>
+    </param>
+
+  </inputs>
+  <outputs>
+    <data format="png" name="out_file1" label="${tool.name} for ${input1.name}" />    
+  </outputs>
+</tool>

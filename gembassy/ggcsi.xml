@@ -1,0 +1,41 @@
+<tool id="EMBOSS: ggcsi" name="ggcsi" version="1.0.2">
+  <description>GC Skew Index: an index for strand-specific mutational bias</description>
+  <command>ggcsi -sequence $input1 -gcsi $gcsi -window $window -purine $purine -keto $keto -at $at -pval $pval -auto -noaccid -outfile $out_file1</command>
+  <inputs>
+  <param format="data" name="input1" type="data">
+    <label>Sequence</label>
+  </param>
+    <param name="gcsi" type="select" value="2">
+      <label>GCSI version to use</label>
+      <option value="1">1</option>
+      <option value="2">2</option>
+    </param>
+    <param name="window" size="4" type="integer" value="4096">
+      <label>Number of windows. Must be a power of 2</label>
+    </param>
+    <param name="purine" type="select" value="no">
+      <label>Use purine skew for calculation</label>
+      <option value="no">No</option>
+      <option value="yes">Yes</option>
+    </param>
+    <param name="keto" type="select" value="no">
+      <label>Use keto skew for calculation</label>
+      <option value="no">No</option>
+      <option value="yes">Yes</option>
+    </param>
+    <param name="at" type="select" value="no">
+      <label>Use AT skew for calculation</label>
+      <option value="no">No</option>
+      <option value="yes">Yes</option>
+    </param>
+    <param name="pval" type="select" value="no">
+      <label>Calculate p-value when GCSI version 2 is selected</label>
+      <option value="no">No</option>
+      <option value="yes">Yes</option>
+    </param>
+
+  </inputs>
+  <outputs>
+    <data format="txt" name="out_file1" label="${tool.name} for ${input1.name}" />    
+  </outputs>
+</tool>

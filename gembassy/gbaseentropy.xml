@@ -1,0 +1,28 @@
+<tool id="EMBOSS: gbaseentropy" name="gbaseentropy" version="1.0.2">
+  <description>Calculates and graphs the sequence conservation using Shanon uncertainty (entropy)</description>
+  <command interpreter="perl">gembassy_calcandplot_wrapper.pl gbaseentropy -sequence $input1 -position $position -patlen $patlen -upstream $upstream -downstream $downstream -auto -noaccid $out_file1 $out_file2</command>
+  <inputs>
+  <param format="data" name="input1" type="data">
+    <label>Sequence</label>
+  </param>
+    <param name="position" type="select" value="start">
+      <label>Either 'start' (around start codon) or 'end' (around stop codon) to create the PWM</label>
+      <option value="start">Start</option>
+      <option value="end">End</option>
+    </param>
+    <param name="patlen" size="4" type="integer" value="3">
+      <label>Length of oligomer to count</label>
+    </param>
+    <param name="upstream" size="4" type="integer" value="30">
+      <label>Length upstream of specified position to create PWM</label>
+    </param>
+    <param name="downstream" size="4" type="integer" value="30">
+      <label>Length downstream of specified position to create PWM</label>
+    </param>
+
+  </inputs>
+  <outputs>
+    <data format="csv" name="out_file1" label="${tool.name} data for ${input1.name}" />
+    <data format="png" name="out_file2" label="${tool.name} plot for ${input1.name}" />    
+  </outputs>
+</tool>

@@ -1,0 +1,75 @@
+<tool id="EMBOSS: kblast" name="kblast" version="1.0.2">
+  <description>Search similar sequences in public repositories using BLAST</description>
+  <command>kblast -seqall $input1 -database $database -program $program -server $server -format $format -eval $eval -qfilter $qfilter -opengap $opengap -extendgap $extendgap -dropoff $dropoff -penalty $penalty -reward $reward -numdescriptions $numdescriptions -numalignments $numalignments -threshold $threshold -g $g -matrix $matrix -wordsize $wordsize -dbsize $dbsize -k $k -searchsp $searchsp -auto -outfile $out_file1</command>
+  <inputs>
+  <param format="data" name="input1" type="data">
+    <label>Sequence</label>
+  </param>
+    <param name="database" size="4" type="text" value="swissprot">
+      <label>database name about target for your search</label>
+    </param>
+    <param name="program" size="4" type="text" value="auto">
+      <label>blast program name. 'auto' (infer suitable program from your sequence), 'blastn', 'blastp' or 'blastx'</label>
+    </param>
+    <param name="server" size="4" type="text" value="">
+      <label>specify web server for your search. 'NCBI', 'EBI' or 'DDBJ'</label>
+    </param>
+    <param name="format" size="4" type="text" value="0">
+      <label>blast report format. 0 : normal BLAST report 8 : tabulark 1: ID listk 2: ID list separated by conmma</label>
+    </param>
+    <param name="eval" size="4" type="text" value="10.0">
+      <label>Expectation value</label>
+    </param>
+    <param name="qfilter" size="4" type="text" value="T">
+      <label></label>
+    </param>
+    <param name="opengap" size="4" type="integer" value="-1">
+      <label>cost to open a gap</label>
+    </param>
+    <param name="extendgap" size="4" type="integer" value="-1">
+      <label>cost to extend a gap</label>
+    </param>
+    <param name="dropoff" size="4" type="text" value="0">
+      <label>X dropoff value for gapped alignment (in bits)</label>
+    </param>
+    <param name="penalty" size="4" type="integer" value="-3">
+      <label>penalty for a nucleotide mismatch (blastn only)</label>
+    </param>
+    <param name="reward" size="4" type="integer" value="1">
+      <label>reward for a nucleotide match (blastn only)</label>
+    </param>
+    <param name="numdescriptions" size="4" type="integer" value="500">
+      <label>show one-line descriptions for this number of database sequences</label>
+    </param>
+    <param name="numalignments" size="4" type="integer" value="250">
+      <label>number of database sequence to show alignments for (B)</label>
+    </param>
+    <param name="threshold" size="4" type="integer" value="0">
+      <label>threshold for extending hits, default if zero for each program</label>
+    </param>
+    <param name="g" type="select" value="no">
+      <label>perform gapped alignment</label>
+      <option value="no">No</option>
+      <option value="yes">Yes</option>
+    </param>
+    <param name="matrix" size="4" type="text" value="BLOSUM62">
+      <label>matrix</label>
+    </param>
+    <param name="wordsize" size="4" type="integer" value="0">
+      <label>word size, default if zero for each program</label>
+    </param>
+    <param name="dbsize" size="4" type="float" value="0">
+      <label>effective size of the database</label>
+    </param>
+    <param name="k" size="4" type="integer" value="0">
+      <label>number of best hits from a region to keep</label>
+    </param>
+    <param name="searchsp" size="4" type="float" value="0">
+      <label>effective length of the search space</label>
+    </param>
+
+  </inputs>
+  <outputs>
+    <data format="txt" name="out_file1" label="${tool.name} for ${input1.name}" />    
+  </outputs>
+</tool>

@@ -1,0 +1,13 @@
+<tool id="EMBOSS: kkitsch" name="kkitsch" version="1.0.2">
+  <description>Fitch-Margoliash method with contemporary tips using kitsch</description>
+  <command>kkitsch -seqall $input1  -auto -outfile $out_file1</command>
+  <inputs>
+  <param format="data" name="input1" type="data">
+    <label>Sequence</label>
+  </param>
+
+  </inputs>
+  <outputs>
+    <data format="txt" name="out_file1" label="${tool.name} for ${input1.name}" />    
+  </outputs>
+</tool>

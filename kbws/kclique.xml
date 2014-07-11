@@ -1,0 +1,13 @@
+<tool id="EMBOSS: kclique" name="kclique" version="1.0.2">
+  <description>Largest clique program using clique</description>
+  <command>kclique -seqall $input1  -auto -outfile $out_file1</command>
+  <inputs>
+  <param format="data" name="input1" type="data">
+    <label>Sequence</label>
+  </param>
+
+  </inputs>
+  <outputs>
+    <data format="txt" name="out_file1" label="${tool.name} for ${input1.name}" />    
+  </outputs>
+</tool>
